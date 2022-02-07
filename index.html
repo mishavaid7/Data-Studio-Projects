@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> NYC Restaurant Grade Story </title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+            .full-size-image {
+                background: url('final.jpg');
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position-y: bottom;
+                background-position: center;
+            }
+        </style>
+    </head>  
+    <body>
+        <div class="full-size-image" id="rest-grades">
+            <div class="text-container">
+                <h1> </h1>
+            </div>
+        </div>
+        <div class="text-container">
+            <p> Every restaurant window in New York City has a health inspection grade that they are required to display in their establishment. I’ve always wondered how these inspections work, especially since every restaurant I’ve ever been to has somehow had an ‘A’ grade. Surely, not all eateries in the city are that clean 🥪🐀 </p>
+            <p> Lucky for us, the Department of Health shares their inspection results <a href="https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j">here.</a> Nobody quite understands the grading breakdown so I looked at the raw data and <a href="https://www.opendatanetwork.com/dataset/data.cityofnewyork.us/43nn-pn8j">documentation</a> that the Department of Health provides us with. </p>
+            <p> A low numeric score indicates fewer violations. Each violation type has different values assigned. So for instance, not sanitizing your utensils falls under the ‘general’ category and can cost you 2 or more points. Failing to keep food at the right temperature falls under the ‘public health hazard’ category and lands you a minimum of 7 points. </p>
+            <p> The final grade is determined by summing up the points, 0 to 13 earns an A, 14 to 27 earns a B and 28+ earns a C. </p>
+            <p>The entire dataset has around 160,000 entries but one row represents one inspection, so many restaurants have multiple entries. There are also some duplicate entries. After cleaning the dataset up a little, let’s look at the grade breakdown. You can see my code <a href="https://github.com/mishavaid7/Rest-Grade-Story">here.</a> </p>
+
+            <iframe title="87% of Restaurant Inspections in NYC resulted in an 'A' grade" aria-label="Bar Chart" id="datawrapper-chart-4UbHy" src="https://datawrapper.dwcdn.net/4UbHy/1/" scrolling="no" frameborder="0" style="border: none;" width="750" height="350" align = "middle" ></iframe>            </script>
+            <p>This is weird, let’s zoom into a year (‘GRADE_DATE = 2021’) to see how the raw scores looked in 2021. </p>
+            <iframe title="There seems to be a steep drop-off on 14 points, at the cutoff from A to B.
+" aria-label="Interactive line chart" id="datawrapper-chart-ugpnT" src="https://datawrapper.dwcdn.net/ugpnT/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="400"></iframe><script type="text/javascript">!function(){"use strict";window.addEventListener("message",(function(e){if(void 0!==e.data["datawrapper-height"]){var t=document.querySelectorAll("iframe");for(var a in e.data["datawrapper-height"])for(var r=0;r<t.length;r++){if(t[r].contentWindow===e.source)t[r].style.height=e.data["datawrapper-height"][a]+"px"}}}))}();
+</script>
+            <p>I found this random document the Department put out that partially explains the steepness. A restaurant essentially has 2 chances to receive an A grade. If during the first visit the restaurant does not receive an A, it is given a raw score but not a letter grade. Then, the inspector revisits the restaurant within a month, unannounced. Based on the scores of this visit, the restaurant is given a letter grade. This gives the restaurants an opportunity to correct their mistakes and ultimately leads to more ‘A’ displays on the windows in the city, benefitting both the business of the restaurant and the reputation of the Department of Health. 
+            </p>
+            <p>However, if the second inspection also leads to a ‘B’ or ‘C’, the restaurant must display that grade on their window. They then have the chance to appeal this grade if they believe that the inspector was unfair. This is what the ‘Z’ values represent in Chart 1. This got me curious about the impact these hearings have on a restaurant’s final grade. What percentage of restaurants obtain A’s through the OATH hearing adjudication pathway? 
+            </p>
+            <div class="plot-holder">
+            
+                <p>
+                    <img src="shot.png">
+                </p>
+                <p class="caption">  </p>
+            </div>
+                    
+                
+            </div>
+    </body>
+</html>
